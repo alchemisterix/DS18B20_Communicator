@@ -36,6 +36,7 @@ namespace DS18B20_Communicator
 
         private void button_connect_Click(object sender, EventArgs e)
         {
+            StatusLabel1.Text = "OPENING PORT";                     //Show message
             _serialPort = new SerialPort(comboBox_PortSelector.Text, 9600);     //lets try to open port
             try { _serialPort.Open(); }                                     //port opening
 
@@ -45,7 +46,7 @@ namespace DS18B20_Communicator
                 MessageBox.Show("Port access ERROR!", "Error");
             }
 
-            StatusLabel1.Text = "OPENING PORT";                       //Show message
+
 
             if (_serialPort.IsOpen)                                 //if port open succes
             {
@@ -53,8 +54,8 @@ namespace DS18B20_Communicator
                 button_connect.Enabled = false;                     //disable connect button
                 button_disconnect.Enabled = true;                   //and enable disconnect button
                 comboBox_PortSelector.Enabled = false;              //disable port selector
-                StatusLabel1.Text = "CONNECTED";                       //Show message
-                StatusLabel1.ForeColor = Color.Blue;                       //Show message
+                StatusLabel1.Text = "CONNECTED";                    //Show message
+                StatusLabel1.ForeColor = Color.Green;                //Show message
 
 
             }
