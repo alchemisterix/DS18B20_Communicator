@@ -47,6 +47,7 @@ namespace DS18B20_Communicator
                 label1.Text = "OPENING PORT";                       //Show message
                 button_connect.Enabled = false;                     //disable connect button
                 button_disconnect.Enabled = true;                   //and enable disconnect button
+                comboBox_PortSelector.Enabled = false;              //disable port selector
             }
         }
 
@@ -58,6 +59,7 @@ namespace DS18B20_Communicator
                 label1.Text = "CLOSING PORT";                       //show message in form
                 button_connect.Enabled = true;                      //enable connect button
                 button_disconnect.Enabled = false;                  //disable disconnect button
+                comboBox_PortSelector.Enabled = true;              //disable port selector
                 _serialPort.Close();                                //closing port
                 label1.Text = "PORT CLOSED";                        //show message
             }
