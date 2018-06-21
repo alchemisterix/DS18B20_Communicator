@@ -32,13 +32,16 @@
             this.button_disconnect = new System.Windows.Forms.Button();
             this.button_connect = new System.Windows.Forms.Button();
             this.comboBox_PortSelector = new System.Windows.Forms.ComboBox();
-            this.ind_box = new System.Windows.Forms.TextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.StatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 423);
+            this.label1.Location = new System.Drawing.Point(417, 217);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 9;
@@ -72,29 +75,41 @@
             this.comboBox_PortSelector.Size = new System.Drawing.Size(117, 21);
             this.comboBox_PortSelector.TabIndex = 6;
             // 
-            // ind_box
+            // statusStrip1
             // 
-            this.ind_box.BackColor = System.Drawing.Color.Red;
-            this.ind_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ind_box.Enabled = false;
-            this.ind_box.Location = new System.Drawing.Point(712, 31);
-            this.ind_box.Name = "ind_box";
-            this.ind_box.ReadOnly = true;
-            this.ind_box.Size = new System.Drawing.Size(76, 20);
-            this.ind_box.TabIndex = 10;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StatusLabel1,
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.TabIndex = 11;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // StatusLabel1
+            // 
+            this.StatusLabel1.Name = "StatusLabel1";
+            this.StatusLabel1.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.ind_box);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_disconnect);
             this.Controls.Add(this.button_connect);
             this.Controls.Add(this.comboBox_PortSelector);
             this.Name = "MainForm";
             this.Text = "DS18B20 Communicator";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,7 +121,9 @@
         private System.Windows.Forms.Button button_disconnect;
         private System.Windows.Forms.Button button_connect;
         private System.Windows.Forms.ComboBox comboBox_PortSelector;
-        private System.Windows.Forms.TextBox ind_box;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel StatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 

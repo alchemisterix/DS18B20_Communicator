@@ -29,6 +29,9 @@ namespace DS18B20_Communicator
                 comboBox_PortSelector.SelectedIndex = 0;                    //set default port to first port founded
                 ports.Add(s);                                               //put port name into collections
             }
+            
+            StatusLabel1.Text = "Ready to use, pleace select port and press connect";
+
         }
 
         private void button_connect_Click(object sender, EventArgs e)
@@ -38,30 +41,37 @@ namespace DS18B20_Communicator
 
             catch (UnauthorizedAccessException)
             {
-                label1.Text = "Access denied";
+                StatusLabel1.Text = "Port access ERROR!";
                 MessageBox.Show("Port access ERROR!", "Error");
             }
 
+            StatusLabel1.Text = "OPENING PORT";                       //Show message
+
             if (_serialPort.IsOpen)                                 //if port open succes
             {
-                label1.Text = "OPENING PORT";                       //Show message
+                
                 button_connect.Enabled = false;                     //disable connect button
                 button_disconnect.Enabled = true;                   //and enable disconnect button
                 comboBox_PortSelector.Enabled = false;              //disable port selector
+                StatusLabel1.Text = "CONNECTED";                       //Show message
+                StatusLabel1.ForeColor = Color.Blue;                       //Show message
+
+
             }
         }
 
         private void button_disconnect_Click(object sender, EventArgs e)
         {
-
+            StatusLabel1.Text = "CLOSING PORT";                       //show message in form
             if (_serialPort.IsOpen)                                 //if Serial Port opened
             {
-                label1.Text = "CLOSING PORT";                       //show message in form
+                
                 button_connect.Enabled = true;                      //enable connect button
                 button_disconnect.Enabled = false;                  //disable disconnect button
                 comboBox_PortSelector.Enabled = true;              //disable port selector
                 _serialPort.Close();                                //closing port
-                label1.Text = "PORT CLOSED";                        //show message
+                StatusLabel1.Text = "DISCONNECTED";                        //show message
+                StatusLabel1.ForeColor = Color.Red;                       //Show message
             }
         }
     }
